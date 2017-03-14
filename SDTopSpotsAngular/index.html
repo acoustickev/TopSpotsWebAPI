@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='myApp'>
+
+<head>
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <!-- endbower -->
+    <!-- inject:css -->
+    <!-- endinject -->
+</head>
+
+<body>
+    <title>San Diego Top Spots</title>
+    <center>
+        <h1>San Diego Top Spots</h1></center>
+    <center>
+        <h5>Your SD tour guide!</h5></center>
+    <div class="container" ng-controller='topSpotsCtrl as vm'>
+        <table class="table table-striped" id="info">
+            <tbody>
+                <thead>
+                    <tr>
+                        <th>Activity</th>
+                        <th>Description</th>
+                        <th>Link to Map</th>
+                    </tr>
+                    <tr ng-repeat="data in vm.topspots">
+                        <th>{{data.name}}</th>
+                        <th>{{data.description}}</th>
+                        <th>
+                            <a href="https://www.google.com/maps?q={{data.Location[0]}}, {{data.Location[1]}}">
+                                <button type='button' class='btn btn-primary'>Open in Google Maps!</button>
+                            </a>
+                        </th>
+            </tbody>
+        </table>
+    </div>
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <!-- endbower -->
+    <!-- inject:js -->
+    <script src="/app/topspot.module.js"></script>
+    <script src="/app/topspot.controller.js"></script>
+    <!-- endinject -->
+</body>
+
+</html>
